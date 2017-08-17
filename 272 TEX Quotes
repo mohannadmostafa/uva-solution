@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+
+public class example{
+public static void main(String[] args){
+   Scanner sc = new Scanner(System.in);
+   String line;
+   boolean open = true;
+   
+   /*
+    * Taking multiple inputs.
+    */
+   while(sc.hasNextLine()){
+	  
+	   line = sc.nextLine();
+	   
+	   /*
+	    * Looping over the text.
+	    */
+	   for(int i = 0; i < line.length(); i++){
+		   if(line.charAt(i) == '\u001a') // EOF
+			   break;
+	     /*
+	      * Looping all over the string
+	      * till the double quotes then printing the tex qoutes.
+	      */
+	       if(line.charAt(i) == '\"')
+	       {   
+	    	   if(open == true)
+	    	   {
+	    		   System.out.print("``");
+	    		   open = false;
+	    		   continue;
+	    	   }else {
+	    		   System.out.print("''");
+	    		   open = true;
+	    		   continue;
+	    	   }
+	    	   
+           }
+	       /*
+	        * printing characters other than " `` " and " '' ".
+	        */
+	        
+           System.out.print(line.charAt(i));
+   }
+	   /*
+	    * printing new line after the first text.
+	    */
+	   System.out.print("\n");
+}
+}}
